@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://unifactory-lab.github.io/class-math/</loc>
+         <lastmod>2024-10-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://unifactory-lab.github.io/class-math/class/</loc>
+         <lastmod>2024-10-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://unifactory-lab.github.io/class-math/class/1.sets/</loc>
+         <lastmod>2024-10-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://unifactory-lab.github.io/class-math/class/2.scalar/</loc>
+         <lastmod>2024-10-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://unifactory-lab.github.io/class-math/class/3.vectors/</loc>
+         <lastmod>2024-10-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://unifactory-lab.github.io/class-math/exo/</loc>
+         <lastmod>2024-10-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+</urlset>
