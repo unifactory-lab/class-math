@@ -18,7 +18,9 @@ nav:
     - index.md
   - Cours :
     - class/index.md
-    - class/sets.md
+    - class/1.sets.md
+    - class/2.scalar.md
+    - class/3.vectors.md
   - Exercices: 
     - exo/index.md
 
