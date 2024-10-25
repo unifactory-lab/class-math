@@ -1,9 +1,9 @@
 # Replace the text below to customize your site
-site_name: Cours Usine numérique
+site_name: Fondamentaux de mathématique
 docs_dir: 'docs/'
 site_dir: 'generated/'
 
-site_description: Bienvenue sur le site dédié au cours d'usine numérique d'UniLaSalle Amiens.
+site_description: Bienvenue sur le site dédié aux fondamentaux de mathématique pour la mécanique et la robotique d'UniLaSalle Amiens.
 site_author: Jules Topart
 copyright: Copyright 2021 - Unilasalle Amiens - Creative Commons Attribution Non Commercial
 
@@ -16,6 +16,9 @@ edit_uri: edit/main/docs/
 nav:
   - Accueil :
     - index.md
+  - Cours :
+    - class/index.md
+    - class/sets.md
   - Exercices: 
     - exo/index.md
 
