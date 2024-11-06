@@ -1,0 +1,1618 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Bienvenue sur le site dédié aux fondamentaux de mathématique pour la mécanique et la robotique d'UniLaSalle Amiens.">
+      
+      
+        <meta name="author" content="Jules Topart">
+      
+      
+        <link rel="canonical" href="https://unifactory-lab.github.io/class-math/class/4.linear.algebra/">
+      
+      
+        <link rel="prev" href="../3.vectors/">
+      
+      
+        <link rel="next" href="../5.vector.space/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>II. Algèbre Linéaire - Fondamentaux de mathématique</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bcfcd587.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=indivisa:300,300i,400,400i,700,700i%7CUbuntu+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"indivisa";--md-code-font:"Ubuntu Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/neoteroi-mkdocs.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/pseudo-code.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="unilasalle" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ii-algebre-lineaire" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+    <nav class="md-header__inner md-grid" aria-label="header.title">
+        <a href="../.." title="Fondamentaux de mathématique"
+            class="md-header__button md-logo" aria-label="Fondamentaux de mathématique" data-md-component="logo">
+            
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 22a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-6v7L9.5 7.5 7 9V2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12Z"/></svg>
+
+        </a>
+        <label class="md-header__button md-icon" for="__drawer">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+        </label>
+
+        <img class="unilogo" src="https://unifactory-lab.github.io/class-math/images/logo-unilasalle-white.png">
+
+        <div class="md-header__title" data-md-component="header-title">
+            <div class="md-header__ellipsis">
+                <div class="md-header__topic">
+                    <span class="md-ellipsis">
+                        Fondamentaux de mathématique
+                    </span>
+                </div>
+                <div class="md-header__topic" data-md-component="header-topic">
+                    <span class="md-ellipsis">
+                        
+                        II. Algèbre Linéaire
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+        <form class="md-header__option" data-md-component="palette">
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="unilasalle"
+                data-md-color-primary="" data-md-color-accent="" 
+                aria-label="Switch to dark mode"  type="radio"
+                name="__palette" id="__palette_1">
+            
+            <label class="md-header__button md-icon" title="Switch to dark mode"
+                for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+            
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="slate"
+                data-md-color-primary="" data-md-color-accent="" 
+                aria-label="Switch to light mode"  type="radio"
+                name="__palette" id="__palette_2">
+            
+            <label class="md-header__button md-icon" title="Switch to light mode"
+                for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+            </label>
+            
+            
+        </form>
+        
+        
+        
+        
+        <div class="md-header__source">
+            <a href="https://github.com/unifactory-lab/class-math/" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    class-math
+  </div>
+</a>
+        </div>
+        
+    </nav>
+    
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+    
+  
+  Accueil
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+    
+  
+  Cours
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../exo/" class="md-tabs__link">
+          
+  
+    
+  
+  Exercices
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Fondamentaux de mathématique" class="md-nav__button md-logo" aria-label="Fondamentaux de mathématique" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 22a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-6v7L9.5 7.5 7 9V2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12Z"/></svg>
+
+    </a>
+    Fondamentaux de mathématique
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/unifactory-lab/class-math/" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    class-math
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../.." class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Accueil
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Accueil
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Cours
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Cours
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.sets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    I. Les Ensembles (Sets)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.scalar/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    II. Les Scalaires, Grandeurs Physiques et Unités
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.vectors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    III. Les Vecteurs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    II. Algèbre Linéaire
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    II. Algèbre Linéaire
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction-a-lalgebre-lineaire" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introduction à l&rsquo;Algèbre Linéaire
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-equations-lineaires-et-systemes-dequations" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Équations Linéaires et Systèmes d&rsquo;Équations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Équations Linéaires et Systèmes d’Équations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-equations-lineaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Équations Linéaires
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-systemes-dequations-lineaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Systèmes d&rsquo;Équations Linéaires
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 Systèmes d’Équations Linéaires">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemple-tangible" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemple Tangible
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-manipulation-des-systemes-dequations-operations-elementaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Manipulation des Systèmes d&rsquo;Équations : Opérations Élémentaires
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Manipulation des Systèmes d’Équations : Opérations Élémentaires">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#regles-de-manipulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Règles de Manipulation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-introduction-aux-matrices" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Introduction aux Matrices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Introduction aux Matrices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-definition-dune-matrice" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Définition d&rsquo;une Matrice
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-matrices-associees-aux-systemes-lineaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Matrices Associées aux Systèmes Linéaires
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-matrice-augmentee" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 Matrice Augmentée
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-methode-du-pivot-de-gauss" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Méthode du Pivot de Gauss
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Méthode du Pivot de Gauss">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etape-1-elimination-progressive-forward-elimination" class="md-nav__link">
+    <span class="md-ellipsis">
+      Étape 1 : Élimination Progressive (Forward Elimination)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Étape 1 : Élimination Progressive (Forward Elimination)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Procédure :
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-2-remontee-backward-substitution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Étape 2 : Remontée (Backward Substitution)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Étape 2 : Remontée (Backward Substitution)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#procedure_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Procédure :
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemple-resolution-par-le-pivot-de-gauss" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemple : Résolution par le Pivot de Gauss
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exemple : Résolution par le Pivot de Gauss">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-representation-matricielle" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Représentation Matricielle
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-elimination-progressive" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Élimination Progressive
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-remontee" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Remontée
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution-du-systeme" class="md-nav__link">
+    <span class="md-ellipsis">
+      Solution du Système
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.vector.space/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IV. Les Espaces Vectoriels
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.linear.map/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    V. Les Applications Linéaires
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.tensors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.tensors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../exo/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Exercices
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Exercices
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction-a-lalgebre-lineaire" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introduction à l&rsquo;Algèbre Linéaire
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-equations-lineaires-et-systemes-dequations" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Équations Linéaires et Systèmes d&rsquo;Équations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Équations Linéaires et Systèmes d’Équations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-equations-lineaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Équations Linéaires
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-systemes-dequations-lineaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Systèmes d&rsquo;Équations Linéaires
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 Systèmes d’Équations Linéaires">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemple-tangible" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemple Tangible
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-manipulation-des-systemes-dequations-operations-elementaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Manipulation des Systèmes d&rsquo;Équations : Opérations Élémentaires
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Manipulation des Systèmes d’Équations : Opérations Élémentaires">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#regles-de-manipulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Règles de Manipulation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-introduction-aux-matrices" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Introduction aux Matrices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Introduction aux Matrices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-definition-dune-matrice" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Définition d&rsquo;une Matrice
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-matrices-associees-aux-systemes-lineaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Matrices Associées aux Systèmes Linéaires
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-matrice-augmentee" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 Matrice Augmentée
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-methode-du-pivot-de-gauss" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Méthode du Pivot de Gauss
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Méthode du Pivot de Gauss">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etape-1-elimination-progressive-forward-elimination" class="md-nav__link">
+    <span class="md-ellipsis">
+      Étape 1 : Élimination Progressive (Forward Elimination)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Étape 1 : Élimination Progressive (Forward Elimination)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Procédure :
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-2-remontee-backward-substitution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Étape 2 : Remontée (Backward Substitution)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Étape 2 : Remontée (Backward Substitution)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#procedure_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Procédure :
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemple-resolution-par-le-pivot-de-gauss" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemple : Résolution par le Pivot de Gauss
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exemple : Résolution par le Pivot de Gauss">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-representation-matricielle" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Représentation Matricielle
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-elimination-progressive" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Élimination Progressive
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-remontee" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Remontée
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution-du-systeme" class="md-nav__link">
+    <span class="md-ellipsis">
+      Solution du Système
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="ii-algebre-lineaire">II. Algèbre Linéaire</h1>
+<p>L&rsquo;<strong>algèbre linéaire</strong> est une branche fondamentale des mathématiques qui étudie les structures vectorielles et les systèmes d&rsquo;équations linéaires. Elle fournit des outils essentiels pour résoudre des problèmes complexes en mécanique, en robotique, en physique, et dans de nombreux autres domaines scientifiques et techniques.</p>
+<h2 id="1-introduction-a-lalgebre-lineaire">1. Introduction à l&rsquo;Algèbre Linéaire</h2>
+<p>L&rsquo;algèbre linéaire s&rsquo;intéresse principalement à l&rsquo;étude des <strong>espaces vectoriels</strong>, des <strong>transformations linéaires</strong>, et des <strong>matrices</strong>. Elle permet de modéliser et de résoudre des systèmes d&rsquo;équations linéaires, d&rsquo;analyser des transformations géométriques, et de comprendre les propriétés structurelles des espaces vectoriels. Bien que l&rsquo;algèbre linéaire s&rsquo;applique sounvent à des problèmes réel, il est également possible de poser des problèmes abstrait.</p>
+<h2 id="2-equations-lineaires-et-systemes-dequations">2. Équations Linéaires et Systèmes d&rsquo;Équations</h2>
+<h3 id="21-equations-lineaires">2.1 Équations Linéaires</h3>
+<p>Une <strong>équation linéaire</strong> en <span class="arithmatex">\( n \)</span> variables est une équation de la forme :</p>
+<div class="arithmatex">\[
+a_1 x_1 + a_2 x_2 + \dots + a_n x_n = b
+\]</div>
+<p>où :</p>
+<ul>
+<li><span class="arithmatex">\( x_1, x_2, \dots, x_n \)</span> sont les variables inconnues.</li>
+<li><span class="arithmatex">\( a_1, a_2, \dots, a_n \in \mathbb{K} \)</span> sont des coefficients constants (avec <span class="arithmatex">\( \mathbb{K} \)</span> un corps, généralement <span class="arithmatex">\( \mathbb{R} \)</span> ou <span class="arithmatex">\( \mathbb{C} \)</span>).</li>
+<li><span class="arithmatex">\( b \in \mathbb{K} \)</span> est un terme constant.</li>
+</ul>
+<p>Cette équation représente une hyperplane dans un espace vectoriel de dimension <span class="arithmatex">\( n \)</span>.</p>
+<h3 id="22-systemes-dequations-lineaires">2.2 Systèmes d&rsquo;Équations Linéaires</h3>
+<p>Un <strong>système d&rsquo;équations linéaires</strong> est un ensemble de <span class="arithmatex">\( m \)</span> équations linéaires à <span class="arithmatex">\( n \)</span> inconnues :</p>
+<div class="arithmatex">\[
+\begin{cases}
+a_{11} x_1 + a_{12} x_2 + \dots + a_{1n} x_n = b_1 \\
+a_{21} x_1 + a_{22} x_2 + \dots + a_{2n} x_n = b_2 \\
+\vdots \\
+a_{m1} x_1 + a_{m2} x_2 + \dots + a_{mn} x_n = b_m
+\end{cases}
+\]</div>
+<p>où <span class="arithmatex">\( a_{ij} \in \mathbb{K} \)</span> et <span class="arithmatex">\( b_i \in \mathbb{K} \)</span>.</p>
+<p><strong>Objectif</strong> : Trouver les vecteurs <span class="arithmatex">\( \vec{x} = (x_1, x_2, \dots, x_n)^T \)</span> qui satisfont simultanément toutes les équations du système.</p>
+<h4 id="exemple-tangible">Exemple Tangible</h4>
+<p>Considérons le système suivant :</p>
+<div class="arithmatex">\[
+\begin{cases}
+2x + 3y = 5 \quad (1) \\
+x - y = -1 \quad (2)
+\end{cases}
+\]</div>
+<p>Notre objectif est de déterminer les valeurs de <span class="arithmatex">\( x \)</span> et <span class="arithmatex">\( y \)</span> qui satisfont simultanément ces deux équations.</p>
+<h2 id="3-manipulation-des-systemes-dequations-operations-elementaires">3. Manipulation des Systèmes d&rsquo;Équations : Opérations Élémentaires</h2>
+<p>Pour résoudre un système d&rsquo;équations linéaires, nous pouvons utiliser des <strong>opérations élémentaires</strong> qui transforment le système en un système équivalent (ayant le même ensemble de solutions). Ces opérations sont :</p>
+<ol>
+<li>
+<p><strong>Permutation des équations</strong> : Changer l&rsquo;ordre des équations du système.</p>
+</li>
+<li>
+<p><strong>Multiplication d&rsquo;une équation par un scalaire non nul</strong> : Si <span class="arithmatex">\( \lambda \in \mathbb{K}^* \)</span>, remplacer une équation <span class="arithmatex">\( E_i \)</span> par <span class="arithmatex">\( \lambda E_i \)</span>.</p>
+</li>
+<li>
+<p><strong>Ajout à une équation d&rsquo;une combinaison linéaire d&rsquo;autres équations</strong> : Remplacer une équation <span class="arithmatex">\( E_i \)</span> par <span class="arithmatex">\( E_i + \lambda E_j \)</span>, où <span class="arithmatex">\( \lambda \in \mathbb{K} \)</span> et <span class="arithmatex">\( E_j \)</span> est une autre équation.</p>
+</li>
+</ol>
+<p><strong>Remarque</strong> : Ces opérations sont légitimes car elles ne modifient pas l&rsquo;ensemble des solutions du système.</p>
+<h3 id="regles-de-manipulation">Règles de Manipulation</h3>
+<ul>
+<li><strong>Objectif</strong> : Simplifier le système pour le résoudre plus facilement.</li>
+<li><strong>Élimination des variables</strong> : Utiliser les opérations pour annuler certains coefficients, facilitant ainsi la résolution des variables restantes.</li>
+</ul>
+<h2 id="4-introduction-aux-matrices">4. Introduction aux Matrices</h2>
+<h3 id="41-definition-dune-matrice">4.1 Définition d&rsquo;une Matrice</h3>
+<p>Une <strong>matrice</strong> est un tableau rectangulaire de nombres, disposés en lignes et en colonnes. Formulée de manière générale :</p>
+<div class="arithmatex">\[
+A = (a_{ij}) \in \mathcal{M}_{m,n}(\mathbb{K})
+\]</div>
+<p>où :</p>
+<ul>
+<li><span class="arithmatex">\( a_{ij} \in \mathbb{K} \)</span> est l&rsquo;élément de la <span class="arithmatex">\( i \)</span>-ème ligne et <span class="arithmatex">\( j \)</span>-ème colonne.</li>
+<li><span class="arithmatex">\( m \)</span> est le nombre de lignes.</li>
+<li><span class="arithmatex">\( n \)</span> est le nombre de colonnes.</li>
+</ul>
+<h3 id="42-matrices-associees-aux-systemes-lineaires">4.2 Matrices Associées aux Systèmes Linéaires</h3>
+<p>Pour un système linéaire, nous pouvons définir :</p>
+<ul>
+<li>
+<p><strong>La matrice des coefficients</strong> <span class="arithmatex">\( A \in \mathcal{M}_{m,n}(\mathbb{K}) \)</span> :
+  [
+  A = \begin{pmatrix}
+  a_{11} &amp; a_{12} &amp; \dots &amp; a_{1n} \
+  a_{21} &amp; a_{22} &amp; \dots &amp; a_{2n} \
+  \vdots &amp; \vdots &amp; \ddots &amp; \vdots \
+  a_{m1} &amp; a_{m2} &amp; \dots &amp; a_{mn}
+  \end{pmatrix}
+  ]</p>
+</li>
+<li>
+<p><strong>Le vecteur des inconnues</strong> <span class="arithmatex">\( \vec{x} = \begin{pmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{pmatrix} \)</span>.</p>
+</li>
+<li>
+<p><strong>Le vecteur des constantes</strong> <span class="arithmatex">\( \vec{b} = \begin{pmatrix} b_1 \\ b_2 \\ \vdots \\ b_m \end{pmatrix} \)</span>.</p>
+</li>
+</ul>
+<p>Le système s&rsquo;écrit alors :</p>
+<div class="arithmatex">\[
+A \vec{x} = \vec{b}
+\]</div>
+<h3 id="43-matrice-augmentee">4.3 Matrice Augmentée</h3>
+<p>La <strong>matrice augmentée</strong> <span class="arithmatex">\( [A | \vec{b}] \)</span> est obtenue en ajoutant le vecteur <span class="arithmatex">\( \vec{b} \)</span> comme dernière colonne de <span class="arithmatex">\( A \)</span> :</p>
+<div class="arithmatex">\[
+[A | \vec{b}] = \begin{pmatrix}
+a_{11} &amp; a_{12} &amp; \dots &amp; a_{1n} &amp; | &amp; b_1 \\
+a_{21} &amp; a_{22} &amp; \dots &amp; a_{2n} &amp; | &amp; b_2 \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; | &amp; \vdots \\
+a_{m1} &amp; a_{m2} &amp; \dots &amp; a_{mn} &amp; | &amp; b_m
+\end{pmatrix}
+\]</div>
+<h2 id="5-methode-du-pivot-de-gauss">5. Méthode du Pivot de Gauss</h2>
+<p>La <strong>méthode du pivot de Gauss</strong> est une technique algorithmique pour résoudre les systèmes d&rsquo;équations linéaires en appliquant systématiquement des opérations élémentaires pour transformer la matrice augmentée en une forme échelonnée.</p>
+<h3 id="etape-1-elimination-progressive-forward-elimination">Étape 1 : Élimination Progressive (Forward Elimination)</h3>
+<p>L&rsquo;<strong>élimination progressive</strong> vise à transformer la matrice augmentée en une <strong>matrice triangulaire supérieure</strong>, c&rsquo;est-à-dire où tous les éléments sous la diagonale principale sont nuls.</p>
+<h4 id="procedure">Procédure :</h4>
+<ol>
+<li>
+<p><strong>Sélection du Pivot</strong> : Pour chaque colonne <span class="arithmatex">\( j \)</span>, choisir un pivot <span class="arithmatex">\( a_{kk} \neq 0 \)</span> situé sur ou en dessous de la diagonale principale.</p>
+</li>
+<li>
+<p><strong>Permutation des Lignes</strong> : Si le pivot n&rsquo;est pas sur la ligne actuelle <span class="arithmatex">\( i \)</span>, permuter la ligne <span class="arithmatex">\( i \)</span> avec la ligne contenant le pivot.</p>
+</li>
+<li>
+<p><strong>Élimination des Éléments Sous le Pivot</strong> : Pour chaque ligne <span class="arithmatex">\( l &gt; i \)</span>, calculer :
+   [
+   L_l \leftarrow L_l - \frac{a_{lj}}{a_{ij}} L_i
+   ]
+   de sorte que <span class="arithmatex">\( a_{lj} = 0 \)</span>.</p>
+</li>
+</ol>
+<h3 id="etape-2-remontee-backward-substitution">Étape 2 : Remontée (Backward Substitution)</h3>
+<p>Une fois la matrice triangulaire obtenue, la <strong>remontée</strong> consiste à résoudre les équations en commençant par la dernière (qui ne contient qu&rsquo;une inconnue), puis en substituant les valeurs trouvées dans les équations précédentes.</p>
+<h4 id="procedure_1">Procédure :</h4>
+<ol>
+<li>
+<p><strong>Résolution de la Dernière Équation</strong> : Trouver la valeur de l&rsquo;inconnue correspondante.</p>
+</li>
+<li>
+<p><strong>Substitution Récursive</strong> : Pour chaque équation <span class="arithmatex">\( i \)</span> de <span class="arithmatex">\( m \)</span> à 1 :
+   [
+   x_i = \frac{1}{a_{ii}} \left( b_i - \sum_{j=i+1}^{n} a_{ij} x_j \right)
+   ]</p>
+</li>
+</ol>
+<h3 id="exemple-resolution-par-le-pivot-de-gauss">Exemple : Résolution par le Pivot de Gauss</h3>
+<p>Considérons le système :</p>
+<div class="arithmatex">\[
+\begin{cases}
+2x + y - z = 8 \quad (1) \\
+-3x - y + 2z = -11 \quad (2) \\
+-2x + y + 2z = -3 \quad (3)
+\end{cases}
+\]</div>
+<h4 id="1-representation-matricielle">1. Représentation Matricielle</h4>
+<p>Matrice augmentée :</p>
+<div class="arithmatex">\[
+[A | \vec{b}] = \left[
+\begin{array}{ccc|c}
+2 &amp; 1 &amp; -1 &amp; 8 \\
+-3 &amp; -1 &amp; 2 &amp; -11 \\
+-2 &amp; 1 &amp; 2 &amp; -3
+\end{array}
+\right]
+\]</div>
+<h4 id="2-elimination-progressive">2. Élimination Progressive</h4>
+<p><strong>Étape 1 :</strong> Pivot en position (1,1), pivot = 2.</p>
+<ul>
+<li>
+<p><strong>Élimination sur la ligne 2 :</strong>
+  [
+  L_2 \leftarrow L_2 - \left( \frac{-3}{2} \right) L_1
+  ]
+  Calcul :
+  [
+  L_2 : \begin{cases}
+  -3 - \left( \frac{-3}{2} \times 2 \right) = 0 \
+  -1 - \left( \frac{-3}{2} \times 1 \right) = 0.5 \
+  2 - \left( \frac{-3}{2} \times (-1) \right) = 0.5 \
+  -11 - \left( \frac{-3}{2} \times 8 \right) = 1
+  \end{cases}
+  ]</p>
+</li>
+<li>
+<p><strong>Élimination sur la ligne 3 :</strong>
+  [
+  L_3 \leftarrow L_3 - \left( \frac{-2}{2} \right) L_1
+  ]
+  Calcul :
+  [
+  L_3 : \begin{cases}
+  -2 - \left( \frac{-2}{2} \times 2 \right) = 0 \
+  1 - \left( \frac{-2}{2} \times 1 \right) = 2 \
+  2 - \left( \frac{-2}{2} \times (-1) \right) = 1 \
+  -3 - \left( \frac{-2}{2} \times 8 \right) = 5
+  \end{cases}
+  ]</p>
+</li>
+</ul>
+<p>Nouvelle matrice :</p>
+<div class="arithmatex">\[
+\left[
+\begin{array}{ccc|c}
+2 &amp; 1 &amp; -1 &amp; 8 \\
+0 &amp; 0.5 &amp; 0.5 &amp; 1 \\
+0 &amp; 2 &amp; 1 &amp; 5
+\end{array}
+\right]
+\]</div>
+<p><strong>Étape 2 :</strong> Pivot en position (2,2), pivot = 0.5.</p>
+<ul>
+<li><strong>Élimination sur la ligne 3 :</strong>
+  [
+  L_3 \leftarrow L_3 - \left( \frac{2}{0.5} \right) L_2 = L_3 - 4 L_2
+  ]
+  Calcul :
+  [
+  L_3 : \begin{cases}
+  0 - 4 \times 0 = 0 \
+  2 - 4 \times 0.5 = 0 \
+  1 - 4 \times 0.5 = -1 \
+  5 - 4 \times 1 = 1
+  \end{cases}
+  ]</li>
+</ul>
+<p>Matrice finale :</p>
+<div class="arithmatex">\[
+\left[
+\begin{array}{ccc|c}
+2 &amp; 1 &amp; -1 &amp; 8 \\
+0 &amp; 0.5 &amp; 0.5 &amp; 1 \\
+0 &amp; 0 &amp; -1 &amp; 1
+\end{array}
+\right]
+\]</div>
+<h4 id="3-remontee">3. Remontée</h4>
+<p><strong>Équation 3 :</strong></p>
+<div class="arithmatex">\[
+-1 z = 1 \implies z = -1
+\]</div>
+<p><strong>Équation 2 :</strong></p>
+<div class="arithmatex">\[
+0.5 y + 0.5 (-1) = 1 \implies 0.5 y - 0.5 = 1 \implies 0.5 y = 1.5 \implies y = 3
+\]</div>
+<p><strong>Équation 1 :</strong></p>
+<div class="arithmatex">\[
+2x + (3) - (-1) = 8 \implies 2x + 4 = 8 \implies 2x = 4 \implies x = 2
+\]</div>
+<h4 id="solution-du-systeme">Solution du Système</h4>
+<div class="arithmatex">\[
+x = 2, \quad y = 3, \quad z = -1
+\]</div>
+<h2 id="6-conclusion">6. Conclusion</h2>
+<p>La méthode du pivot de Gauss est un outil essentiel en algèbre linéaire pour résoudre des systèmes linéaires. Elle repose sur des opérations élémentaires qui préservent l&rsquo;équivalence du système et permet de le transformer en une forme où les solutions peuvent être obtenues par substitution.</p>
+<p><strong>Points Clés :</strong></p>
+<ul>
+<li>
+<p><strong>Rigueur des Opérations</strong> : Les opérations élémentaires doivent être appliquées avec précision pour assurer l&rsquo;exactitude des résultats.</p>
+</li>
+<li>
+<p><strong>Importance des Pivots</strong> : Le choix approprié des pivots est crucial pour éviter les divisions par zéro et minimiser les erreurs numériques.</p>
+</li>
+<li>
+<p><strong>Applications Pratiques</strong> : La méthode est largement utilisée en ingénierie, en physique et en informatique pour résoudre des problèmes réels impliquant des systèmes linéaires.</p>
+</li>
+</ul>
+
+
+<!-- Last updated date -->
+
+<hr />
+<div class="md-source-date">
+  <small>
+    
+      Auteur :  Jules Topart - 
+    
+    <!-- mkdocs-git-revision-date-localized-plugin -->
+    
+      Dernière mise à jour: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">6 novembre 2024</span>
+
+      
+
+    <!-- mkdocs-git-revision-date-plugin -->
+    
+  </small>
+</div>
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
+        
+          
+          <a href="../3.vectors/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: III. Les Vecteurs">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Précédent
+              </span>
+              <div class="md-ellipsis">
+                III. Les Vecteurs
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../5.vector.space/" class="md-footer__link md-footer__link--next" aria-label="Suivant: IV. Les Espaces Vectoriels">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              <div class="md-ellipsis">
+                IV. Les Espaces Vectoriels
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright 2021 - Unilasalle Amiens - Creative Commons Attribution Non Commercial
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.tabs", "navigation.instant", "navigation.instant.progress", "navigation.tracking", "search.suggest", "navigation.footer", "navigation.top", "toc.follow"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+        <script src="../../js/mkdocs-charts-plugin.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/p5@1.5.0/lib/p5.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+      
+        <script src="../../theme/p5.min.js"></script>
+      
+        <script src="../../theme/p5.fillGradient.js"></script>
+      
+        <script src="../../theme/config.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://unpkg.com/function-plot/dist/function-plot.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/1.5.2/math.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.js"></script>
+      
+    
+  </body>
+</html>

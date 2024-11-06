@@ -1,0 +1,1548 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Bienvenue sur le site dédié aux fondamentaux de mathématique pour la mécanique et la robotique d'UniLaSalle Amiens.">
+      
+      
+        <meta name="author" content="Jules Topart">
+      
+      
+        <link rel="canonical" href="https://unifactory-lab.github.io/class-math/class/1.sets/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../2.scalar/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>I. Les Ensembles (Sets) - Fondamentaux de mathématique</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bcfcd587.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=indivisa:300,300i,400,400i,700,700i%7CUbuntu+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"indivisa";--md-code-font:"Ubuntu Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/neoteroi-mkdocs.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/pseudo-code.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="unilasalle" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#i-les-ensembles-sets" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+    <nav class="md-header__inner md-grid" aria-label="header.title">
+        <a href="../.." title="Fondamentaux de mathématique"
+            class="md-header__button md-logo" aria-label="Fondamentaux de mathématique" data-md-component="logo">
+            
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 22a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-6v7L9.5 7.5 7 9V2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12Z"/></svg>
+
+        </a>
+        <label class="md-header__button md-icon" for="__drawer">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+        </label>
+
+        <img class="unilogo" src="https://unifactory-lab.github.io/class-math/images/logo-unilasalle-white.png">
+
+        <div class="md-header__title" data-md-component="header-title">
+            <div class="md-header__ellipsis">
+                <div class="md-header__topic">
+                    <span class="md-ellipsis">
+                        Fondamentaux de mathématique
+                    </span>
+                </div>
+                <div class="md-header__topic" data-md-component="header-topic">
+                    <span class="md-ellipsis">
+                        
+                        I. Les Ensembles (Sets)
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+        <form class="md-header__option" data-md-component="palette">
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="unilasalle"
+                data-md-color-primary="" data-md-color-accent="" 
+                aria-label="Switch to dark mode"  type="radio"
+                name="__palette" id="__palette_1">
+            
+            <label class="md-header__button md-icon" title="Switch to dark mode"
+                for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+            
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="slate"
+                data-md-color-primary="" data-md-color-accent="" 
+                aria-label="Switch to light mode"  type="radio"
+                name="__palette" id="__palette_2">
+            
+            <label class="md-header__button md-icon" title="Switch to light mode"
+                for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+            </label>
+            
+            
+        </form>
+        
+        
+        
+        
+        <div class="md-header__source">
+            <a href="https://github.com/unifactory-lab/class-math/" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    class-math
+  </div>
+</a>
+        </div>
+        
+    </nav>
+    
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+    
+  
+  Accueil
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+    
+  
+  Cours
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../exo/" class="md-tabs__link">
+          
+  
+    
+  
+  Exercices
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Fondamentaux de mathématique" class="md-nav__button md-logo" aria-label="Fondamentaux de mathématique" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 22a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-6v7L9.5 7.5 7 9V2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12Z"/></svg>
+
+    </a>
+    Fondamentaux de mathématique
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/unifactory-lab/class-math/" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    class-math
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../.." class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Accueil
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Accueil
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Cours
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Cours
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    I. Les Ensembles (Sets)
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    I. Les Ensembles (Sets)
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-notation-et-symboles-des-ensembles" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Notation et Symboles des Ensembles
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-types-densembles" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Types d’Ensembles
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-operations-sur-les-ensembles" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Opérations sur les Ensembles
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-definir-un-ensemble-par-une-regle" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Définir un Ensemble par une Règle
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-les-ensembles-fixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Les Ensembles Fixes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-notation-des-intervalles" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Notation des Intervalles
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-stabilite-et-proprietes-de-r" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Stabilité et propriétés de ℝ
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Stabilité et propriétés de ℝ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-definition-de-la-stabilite" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1 Définition de la Stabilité
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-proprietes-de-r" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2 Propriétés de ℝ
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-exemple-stabilite-des-nombres-naturels-positifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3 Exemple : Stabilité des Nombres Naturels Positifs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-utilisation-des-symboles-pour-definir-des-ensembles" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Utilisation des Symboles pour Définir des Ensembles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Utilisation des Symboles pour Définir des Ensembles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-principaux-symboles-et-leur-signification" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1 Principaux Symboles et Leur Signification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-exemples-de-definition-densembles-avec-notation" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2 Exemples de Définition d’Ensembles avec Notation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-corps" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Corps
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-bonus-implication-et-equivalence" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Bonus - Implication et Équivalence
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Bonus - Implication et Équivalence">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemple" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemple
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.scalar/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    II. Les Scalaires, Grandeurs Physiques et Unités
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.vectors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    III. Les Vecteurs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.linear.algebra/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    II. Algèbre Linéaire
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.vector.space/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IV. Les Espaces Vectoriels
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.linear.map/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    V. Les Applications Linéaires
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.tensors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.tensors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../exo/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Exercices
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Exercices
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-notation-et-symboles-des-ensembles" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Notation et Symboles des Ensembles
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-types-densembles" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Types d’Ensembles
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-operations-sur-les-ensembles" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Opérations sur les Ensembles
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-definir-un-ensemble-par-une-regle" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Définir un Ensemble par une Règle
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-les-ensembles-fixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Les Ensembles Fixes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-notation-des-intervalles" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Notation des Intervalles
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-stabilite-et-proprietes-de-r" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Stabilité et propriétés de ℝ
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Stabilité et propriétés de ℝ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-definition-de-la-stabilite" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1 Définition de la Stabilité
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-proprietes-de-r" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2 Propriétés de ℝ
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-exemple-stabilite-des-nombres-naturels-positifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3 Exemple : Stabilité des Nombres Naturels Positifs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-utilisation-des-symboles-pour-definir-des-ensembles" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Utilisation des Symboles pour Définir des Ensembles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Utilisation des Symboles pour Définir des Ensembles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-principaux-symboles-et-leur-signification" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1 Principaux Symboles et Leur Signification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-exemples-de-definition-densembles-avec-notation" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2 Exemples de Définition d’Ensembles avec Notation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-corps" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Corps
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-bonus-implication-et-equivalence" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Bonus - Implication et Équivalence
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Bonus - Implication et Équivalence">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemple" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemple
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="i-les-ensembles-sets">I. Les Ensembles (Sets)</h1>
+<p>Les <strong>ensembles</strong> sont l&rsquo;une des bases fondamentales des mathématiques et constituent une notion clé pour décrire des collections d&rsquo;objets. Un ensemble est simplement un groupe d&rsquo;éléments distincts (indépendants), qui peuvent être des nombres, des points, des polynômes, des vecteurs, ou même des concepts abstraits. Cette flexibilité est importante, car elle nous permet de manipuler et de structurer des éléments divers pour mieux comprendre des phénomènes ou résoudre des problèmes.</p>
+<p>En mécanique et en robotique, les ensembles permettent de regrouper des informations utiles, comme un ensemble de points dans l’espace ou des ensembles de paramètres spécifiques. Ils permettent également de d&rsquo;identifier la nature des objets mathématiques que nous manipulons.</p>
+<p>On peut définir un ensemble de deux façon. Soit en listant les éléments qu&rsquo;il contient, soit en décrivant les hypothèses ou propriétés que respectent les éléments qu&rsquo;il contient. </p>
+<p>Exemple : </p>
+<div class="arithmatex">\[
+S = \{x &lt; 4 | x \in N^+\}
+\]</div>
+<p>On peut aussi écrire cette ensemble de cette façon : </p>
+<div class="arithmatex">\[
+S = \{1, 2, 3\}
+\]</div>
+<p>A la fin de ce chapitre vous serez capable de lire et même de définir vos propres ensembles !</p>
+<details class="quote">
+<summary>In english please !</summary>
+<p><strong>Set</strong>: a collection of distinct objects or elements.</p>
+</details>
+<h2 id="1-notation-et-symboles-des-ensembles">1. Notation et Symboles des Ensembles</h2>
+<p>Les ensembles sont généralement notés avec des lettres majuscules, comme <span class="arithmatex">\( A \)</span>, <span class="arithmatex">\( B \)</span>, ou <span class="arithmatex">\( S \)</span>. Les éléments d’un ensemble sont placés entre accolades <code>{ }</code>, et on les sépare par des virgules. Par exemple, si l’on veut décrire l’ensemble des trois premiers nombres naturels, on peut écrire :</p>
+<div class="arithmatex">\[
+A = \{1, 2, 3\}
+\]</div>
+<p>Dans ce cas, <strong>1</strong>, <strong>2</strong>, et <strong>3</strong> sont des éléments de l’ensemble <strong>A</strong>.</p>
+<p>Si un élément appartient à un ensemble, on utilise le symbole <strong>∈</strong>. Par exemple, pour exprimer que <strong>1</strong> est dans <strong>A</strong>, on écrit :</p>
+<div class="arithmatex">\[
+1 \in A
+\]</div>
+<details class="quote">
+<summary>In english please !</summary>
+<p><strong>Element</strong>: an individual object within a set, often represented with the symbol <strong>∈</strong> to indicate &ldquo;belongs to.&rdquo;</p>
+</details>
+<h2 id="2-types-densembles">2. Types d’Ensembles</h2>
+<p>Il existe différents types d’ensembles ainsi qu&rsquo;un vocabulaire particulier pour les décrire.</p>
+<p>On parle par exemple de : </p>
+<ul>
+<li><strong>Ensemble vide</strong> <span class="arithmatex">\( \emptyset \)</span> : Un ensemble qui ne contient aucun élément. Par exemple, l’ensemble des solutions d’une équation sans solution.</li>
+<li><strong>Ensemble fini</strong> : Un ensemble avec un nombre limité d’éléments, comme <span class="arithmatex">\( B = \{a, b, c\} \)</span>.</li>
+<li><strong>Ensemble infini</strong> : Un ensemble avec un nombre illimité d’éléments, comme l’ensemble des nombres naturels <span class="arithmatex">\( N = \{1, 2, 3, \dots\} \)</span>.</li>
+</ul>
+<p>Les ensembles peuvent regrouper différents types d’objets, par exemples :</p>
+<ul>
+<li>Des <strong>nombres</strong> (comme les entiers ou réels),</li>
+<li>Des <strong>points</strong>,</li>
+<li>Des <strong>polynômes</strong>,</li>
+<li>Des <strong>vecteurs</strong>,</li>
+<li>Ou même des <strong>matrices</strong>.</li>
+</ul>
+<p>Cette possibilité de rassembler divers objets mathématiques dans des ensembles prépare les bases pour des structures mathématiques plus complexes comme les espaces vectoriels.</p>
+<details class="quote">
+<summary>In english please !</summary>
+<ul>
+<li><strong>Empty set</strong>: a set with no elements, often represented by <strong>∅</strong> or <strong>{}</strong>.</li>
+<li><strong>Finite set</strong>: a set with a finite number of elements.</li>
+<li><strong>Infinite set</strong>: a set with an infinite number of elements.</li>
+</ul>
+</details>
+<h2 id="3-operations-sur-les-ensembles">3. Opérations sur les Ensembles</h2>
+<p>Il est possible de réaliser différentes opérations sur les ensembles qui nous seront utiles dans des situations pratiques, en particulier pour organiser et manipuler les données. Voici quelques unes des opérations les plus communes :</p>
+<ol>
+<li><strong>Union</strong> <span class="arithmatex">\( A \cup B \)</span> : L’union de deux ensembles <span class="arithmatex">\( A \)</span> et <span class="arithmatex">\( B \)</span> est l’ensemble de tous les éléments présents dans <strong>A</strong> ou dans <strong>B</strong> (ou dans les deux). Par exemple, si <span class="arithmatex">\( A = \{1, 2\} \)</span> et <span class="arithmatex">\( B = \{2, 3\} \)</span>, alors :</li>
+</ol>
+<div class="arithmatex">\[
+A \cup B = \{1, 2, 3\}
+\]</div>
+<ol start="2">
+<li><strong>Intersection</strong> <span class="arithmatex">\( A \cap B \)</span> : L’intersection de deux ensembles <span class="arithmatex">\( A \)</span> et <span class="arithmatex">\( B \)</span> est l’ensemble de tous les éléments présents à la fois dans <strong>A</strong> et dans <strong>B</strong>. Par exemple, avec <span class="arithmatex">\( A = \{1, 2\} \)</span> et <span class="arithmatex">\( B = \{2, 3\} \)</span>, on obtient :</li>
+</ol>
+<div class="arithmatex">\[
+A \cap B = \{2\}
+\]</div>
+<ol start="3">
+<li><strong>Différence</strong> <span class="arithmatex">\( A \setminus B \)</span> : La différence entre deux ensembles <strong>A</strong> et <strong>B</strong> est l’ensemble des éléments qui sont dans <strong>A</strong> mais pas dans <strong>B</strong>. On peut aussi lire cela <em>&ldquo;A moins les éléments contenus dans B&rdquo;</em>. Par exemple, avec <span class="arithmatex">\( A = \{1, 2\} \)</span> et <span class="arithmatex">\( B = \{2, 3\} \)</span>, on a :</li>
+</ol>
+<div class="arithmatex">\[
+A \setminus B = \{1\}
+\]</div>
+<details class="quote">
+<summary>In english please !</summary>
+<ul>
+<li><strong>Union</strong>: the set of all elements in either or both sets, represented as <strong>A \cup B</strong>.</li>
+<li><strong>Intersection</strong>: the set of all elements in existing in both sets, represented as <strong>A \cap B</strong>.</li>
+</ul>
+</details>
+<div class="admonition example">
+<p class="admonition-title">Exercice</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Question</label><label for="__tabbed_1_2">Solution</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Essayez de répondre aux questions suivantes pour pratiquer l’utilisation des ensembles :</p>
+<ol>
+<li>Soit <span class="arithmatex">\( C = \{4, 5, 6\} \)</span> et <span class="arithmatex">\( D = \{5, 6, 7\} \)</span>. Quelle est l’union de <span class="arithmatex">\( C \)</span> et <span class="arithmatex">\( D \)</span> ?</li>
+<li>Quelle est l’intersection de <span class="arithmatex">\( C \)</span> et <span class="arithmatex">\( D \)</span> ?</li>
+<li>Quelle est la différence entre <span class="arithmatex">\( C \)</span> et <span class="arithmatex">\( D \)</span> (c’est-à-dire, <span class="arithmatex">\( C \setminus D \)</span>) ?</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<ol>
+<li><span class="arithmatex">\(C \cup D = \{4, 5, 6, 7\}\)</span></li>
+<li><span class="arithmatex">\(C \cap D = \{5, 6\}\)</span></li>
+<li><span class="arithmatex">\(C \setminus D = \{4\}\)</span></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<hr />
+<h2 id="4-definir-un-ensemble-par-une-regle">4. Définir un Ensemble par une Règle</h2>
+<p>Il est possible de définir un ensemble non seulement en énumérant ses éléments, mais aussi en utilisant une <strong>règle</strong> qui décrit ses propriétés. Par exemple, si l’on souhaite définir un ensemble contenant les trois premiers mois de l’année, on peut écrire :</p>
+<div class="arithmatex">\[
+A = \{x \ | \ x \text{ est l'un des trois premiers mois de l'année}\}
+\]</div>
+<p>Dans ce cas, l’ensemble <strong>A</strong> sera équivalent à :</p>
+<div class="arithmatex">\[
+A = \{\text{Janvier, Février, Mars}\}
+\]</div>
+<details class="quote">
+<summary>In english please !</summary>
+<p><strong>Set described by rule</strong>: a set definition based on a specific rule or property of its elements, such as <span class="arithmatex">\( A = \{ x | \ x \ \text{has a specific property}\} \)</span>.</p>
+</details>
+<h2 id="5-les-ensembles-fixes">5. Les Ensembles Fixes</h2>
+<p>Certains ensembles sont fréquemment utilisés dans les mathématiques et possèdent des notations standard que vous rencontrerez souvent :</p>
+<ul>
+<li><strong><span class="arithmatex">\( \mathbb{N} \)</span></strong> : Ensemble des nombres <strong>naturels</strong> <span class="arithmatex">\( \mathbb{N} = \{0, 1, 2, 3, \dots\} \)</span></li>
+<li><strong><span class="arithmatex">\( \mathbb{Z} \)</span></strong> : Ensemble des nombres <strong>entiers</strong> <span class="arithmatex">\( \mathbb{Z} = \{\dots, -2, -1, 0, 1, 2, \dots\} \)</span></li>
+<li><strong><span class="arithmatex">\( \mathbb{Q} \)</span></strong> : Ensemble des nombres <strong>rationnels</strong> (nombres pouvant être exprimés comme le rapport de deux entiers) <span class="arithmatex">\( \mathbb{Q} = \left\{\frac{a}{b} \ | \ a \in \mathbb{Z}, b \in \mathbb{Z}^*, b \neq 0 \right\} \)</span></li>
+<li><strong><span class="arithmatex">\( \mathbb{R} \)</span></strong> : Ensemble des nombres <strong>réels</strong> (incluant tous les nombres rationnels et irrationnels comme √2, π).</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Les tips de top-top</p>
+<p>Dans certains cas la présence de l&rsquo;élément 0 dans un ensemble peut être ambigüe. Pour éviter les confusions il convient de préciser si l&rsquo;on choisi d&rsquo;inclure 0 ou pas. Pour les entiers naturels par exemple on écrira <span class="arithmatex">\(N_0\)</span> ou <span class="arithmatex">\({N}^*\cup \{0\}\)</span> pour signifier que l&rsquo;on inclus l&rsquo;élément neutre. Au contraire on écrira <span class="arithmatex">\({N}^*\)</span> ou <span class="arithmatex">\({N}\setminus0\)</span> pour préciser que l&rsquo;on exclus 0</p>
+</div>
+<details class="quote">
+<summary>In english please !</summary>
+<p><strong>Fixed sets</strong>: standard sets commonly used in mathematics, such as the natural numbers <span class="arithmatex">\( \mathbb{N} \)</span>, integers <span class="arithmatex">\( \mathbb{Z} \)</span>, rational numbers <span class="arithmatex">\( \mathbb{Q} \)</span>, and real numbers <span class="arithmatex">\( \mathbb{R} \)</span>.</p>
+</details>
+<p><img alt="" class="center" src="https://physique-et-maths.fr/enseignement/terminale_generale/mathematiques_expertes/nombres_complexes/nombres_complexes.png" />
+<center><font size="2">source : physique-et-maths.fr</font></center></p>
+<h2 id="6-notation-des-intervalles">6. Notation des Intervalles</h2>
+<p>Pour définir des sous-ensembles de nombres réels, nous utilisons souvent la <strong>notation d’intervalles</strong>, qui permet de préciser si les limites d’un ensemble sont incluses ou non. Voici les principales conventions :</p>
+<ul>
+<li><strong>Intervalle ouvert</strong> <span class="arithmatex">\( (0, 1) \)</span> : Contient tous les nombres entre 0 et 1, sans inclure 0 ni 1.</li>
+<li><strong>Intervalle fermé</strong> <span class="arithmatex">\( [0, 1] \)</span> : Contient tous les nombres entre 0 et 1, y compris 0 et 1.</li>
+<li><strong>Intervalle semi-ouvert</strong> <span class="arithmatex">\( (0, 1] \)</span> : Contient tous les nombres entre 0 et 1, incluant 1 mais excluant 0.</li>
+</ul>
+<p>Ces notations permettent de préciser les limites de l’ensemble et sont très utiles pour décrire des plages de valeurs, notamment en physique ou en ingénierie.</p>
+<details class="quote">
+<summary>In english please !</summary>
+<p><strong>Intervals</strong>: notation to define subsets of real numbers, specifying whether boundaries are included (e.g., <span class="arithmatex">\( (a, b) \)</span>, <span class="arithmatex">\( [a, b] \)</span>).</p>
+</details>
+<hr />
+<h2 id="8-stabilite-et-proprietes-de-r">8. Stabilité et propriétés de ℝ</h2>
+<p>L’ensemble des nombres réels <span class="arithmatex">\( \mathbb{R} \)</span> possède plusieurs propriétés fondamentales qu&rsquo;il est important de connaître. Mais l&rsquo;ensemble des nombre réel est surtout un bon moyen pour le professeur d&rsquo;introduire la notion de <strong>stabilité</strong> (ou <strong>clôture</strong>).</p>
+<h3 id="81-definition-de-la-stabilite">8.1 Définition de la Stabilité</h3>
+<p>Un ensemble est dit <strong>stable</strong> (ou <strong>clos</strong>) pour une opération définie, si, pour tous les éléments de cet ensemble, le résultat de l’opération appartient encore au même ensemble. Cela signifie que lorsqu’on applique une opération comme l&rsquo;addition, la multiplication ou la soustraction sur des éléments de l&rsquo;ensemble, le résultat doit rester dans l’ensemble, sinon on dit que l&rsquo;ensemble n&rsquo;est pas clos pour l&rsquo;opération.</p>
+<p>En d&rsquo;autres termes, un ensemble <span class="arithmatex">\( E \)</span> est stable sous une opération <span class="arithmatex">\( \star \)</span> si, pour tous <span class="arithmatex">\( a \)</span> et <span class="arithmatex">\( b \)</span> dans <span class="arithmatex">\( E \)</span>, <span class="arithmatex">\( a \star b \in E \)</span>.</p>
+<p>On peut également démontrer d&rsquo;une partie finie de l&rsquo;ensemble est stable pour une opération bien que l&rsquo;ensemble de départ ne l&rsquo;est pas nécessairement.</p>
+<h3 id="82-proprietes-de-r">8.2 Propriétés de ℝ</h3>
+<p>L’ensemble des nombres réels <span class="arithmatex">\( \mathbb{R} \)</span> possède plusieurs propriétés fondamentales. Voici quelques-unes de ces propriétés les plus importantes :</p>
+<ul>
+<li>
+<p><strong>Fermeture pour l’addition</strong> : La somme de deux nombres réels est toujours un nombre réel. Par exemple, <span class="arithmatex">\( 2 + 5 = 7 \)</span>, et <span class="arithmatex">\( 7 \in \mathbb{R} \)</span>.</p>
+</li>
+<li>
+<p><strong>Fermeture pour la multiplication</strong> : Le produit de deux nombres réels est également un nombre réel. Par exemple, <span class="arithmatex">\( 3 \times 4 = 12 \)</span>, et <span class="arithmatex">\( 12 \in \mathbb{R} \)</span>.</p>
+</li>
+<li>
+<p><strong>Élément neutre pour l’addition</strong> : L’élément <span class="arithmatex">\( 0 \)</span> agit comme un neutre pour l’addition. Cela signifie que, pour tout <span class="arithmatex">\( x \in \mathbb{R} \)</span>, <span class="arithmatex">\( x + 0 = x \)</span>. Par exemple, <span class="arithmatex">\( 5 + 0 = 5 \)</span>.</p>
+</li>
+<li>
+<p><strong>Inverse pour l’addition</strong> : Chaque nombre réel possède un inverse pour l’addition, ce qui signifie qu&rsquo;il existe un nombre réel <span class="arithmatex">\( -x \)</span> tel que <span class="arithmatex">\( x + (-x) = 0 \)</span>. Par exemple, pour <span class="arithmatex">\( 3 \)</span>, l’inverse est <span class="arithmatex">\( -3 \)</span> car <span class="arithmatex">\( 3 + (-3) = 0 \)</span>.</p>
+</li>
+<li>
+<p><strong>Distributivité</strong> : La multiplication est distributive par rapport à l’addition, ce qui signifie que <span class="arithmatex">\( x \times (y + z) = x \times y + x \times z \)</span> pour tout <span class="arithmatex">\( x, y, z \in \mathbb{R} \)</span>. Par exemple, <span class="arithmatex">\( 2 \times (3 + 4) = 2 \times 3 + 2 \times 4 = 14 \)</span>.</p>
+</li>
+</ul>
+<p>Ces propriétés garantissent que les nombres réels forment une structure cohérente et robuste pour les opérations mathématiques.</p>
+<h3 id="83-exemple-stabilite-des-nombres-naturels-positifs">8.3 Exemple : Stabilité des Nombres Naturels Positifs</h3>
+<p>Considérons l&rsquo;ensemble des nombres naturels positifs <span class="arithmatex">\( \mathbb{N}^+ = \{1, 2, 3, \dots\} \)</span>.</p>
+<ul>
+<li>
+<p><strong>Stabilité sous l’addition</strong> : La somme de deux nombres naturels positifs est toujours un nombre naturel positif. Par exemple, si <span class="arithmatex">\( 2 \in \mathbb{N}^+ \)</span> et <span class="arithmatex">\( 3 \in \mathbb{N}^+ \)</span>, alors <span class="arithmatex">\( 2 + 3 = 5 \in \mathbb{N}^+ \)</span>. On dit donc que <span class="arithmatex">\( \mathbb{N}^+ \)</span> est stable sous l’addition.</p>
+</li>
+<li>
+<p><strong>Non-stabilité sous la soustraction</strong> : La soustraction de deux nombres naturels positifs peut donner un résultat qui n&rsquo;est pas un nombre naturel positif. Par exemple, <span class="arithmatex">\( 3 - 5 = -2 \)</span>, qui n’appartient pas à <span class="arithmatex">\( \mathbb{N}^+ \)</span>. Ainsi, <span class="arithmatex">\( \mathbb{N}^+ \)</span> n’est pas stable sous la soustraction.</p>
+</li>
+</ul>
+<p>La compréhension de la stabilité est essentielle, car elle indique les limites de l’ensemble et si d&rsquo;autres méthodes ou ensembles peuvent être nécessaires pour certaines opérations.</p>
+<div class="admonition example">
+<p class="admonition-title">Exercice</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Question</label><label for="__tabbed_2_2">Solution</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Déterminez si les ensembles suivants sont stables sous les opérations indiquées :</p>
+<ol>
+<li><strong>Les nombres pairs sous l’addition</strong> : Si <span class="arithmatex">\( a \)</span> et <span class="arithmatex">\( b \)</span> sont des nombres pairs, est-ce que <span class="arithmatex">\( a + b \)</span> est également pair ?</li>
+<li><strong>Les nombres entiers <span class="arithmatex">\( \mathbb{Z} \)</span> sous la division</strong> : Si <span class="arithmatex">\( a \)</span> et <span class="arithmatex">\( b \)</span> sont des entiers, est-ce que <span class="arithmatex">\( a \div b \)</span> est toujours un entier ?</li>
+<li><strong>Les multiples de 3 sous la soustraction</strong> : Si <span class="arithmatex">\( a \)</span> et <span class="arithmatex">\( b \)</span> sont multiples de 3, est-ce que <span class="arithmatex">\( a - b \)</span> est toujours un multiple de 3 ?</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<ol>
+<li>Oui, les nombres pairs sont stables sous l’addition car la somme de deux nombres pairs est toujours paire.</li>
+<li>Non, <span class="arithmatex">\( \mathbb{Z} \)</span> n’est pas stable sous la division car la division de deux entiers peut produire un nombre rationnel. Par exemple, <span class="arithmatex">\( 4 \div 3 = 1.33 \)</span>, qui n&rsquo;est pas un entier.</li>
+<li>Oui, les multiples de 3 sont stables sous la soustraction, car la différence de deux multiples de 3 est toujours un multiple de 3.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<hr />
+<h2 id="9-utilisation-des-symboles-pour-definir-des-ensembles">9. Utilisation des Symboles pour Définir des Ensembles</h2>
+<p>Pour définir des ensembles de façon concise, on utilise souvent une notation mathématique plus formelle. Cette notation permet d’exprimer les ensembles et leurs propriétés sans avoir à énoncer chaque élément individuellement.</p>
+<h3 id="91-principaux-symboles-et-leur-signification">9.1 Principaux Symboles et Leur Signification</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Symbole</strong></th>
+<th><strong>Signification</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\( \in \)</span></td>
+<td>Appartenance</td>
+<td>Un élément appartient à un ensemble, ex. <span class="arithmatex">\( x \in A \)</span> signifie que <span class="arithmatex">\( x \)</span> est un élément de <span class="arithmatex">\( A \)</span>.</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\( \subset \)</span></td>
+<td>Sous-ensemble</td>
+<td>Indique que tous les éléments d’un ensemble <span class="arithmatex">\( A \)</span> sont aussi dans un ensemble <span class="arithmatex">\( B \)</span>, <span class="arithmatex">\( A \subset B \)</span>.</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\( \cup \)</span></td>
+<td>Union</td>
+<td>Réunion de deux ensembles, contenant tous les éléments de <span class="arithmatex">\( A \)</span> et de <span class="arithmatex">\( B \)</span>.</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\( \cap \)</span></td>
+<td>Intersection</td>
+<td>Ensemble des éléments communs à <span class="arithmatex">\( A \)</span> et <span class="arithmatex">\( B \)</span>.</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\( \forall \)</span></td>
+<td>Pour tout</td>
+<td>Indique que quelque chose est vrai pour chaque élément d’un ensemble, ex. <span class="arithmatex">\( \forall x \in \mathbb{R} \)</span>.</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\( \exists \)</span></td>
+<td>Il existe</td>
+<td>Indique qu’au moins un élément satisfait une condition, ex. <span class="arithmatex">\( \exists x \in A \)</span>.</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\( \exists ! \)</span></td>
+<td>Il existe un unique</td>
+<td>Indique qu’il existe un seul élément vérifiant la condition, ex. <span class="arithmatex">\( \exists ! x \in A \)</span> tel que &hellip;</td>
+</tr>
+</tbody>
+</table>
+<p>A ces notations s&rsquo;ajoutent toutes les notations communes tels que les opérateurs de comparaisons et autres (<span class="arithmatex">\(&gt;\)</span>, <span class="arithmatex">\(&lt;\)</span>, <span class="arithmatex">\(\leq\)</span> &hellip;)</p>
+<h3 id="92-exemples-de-definition-densembles-avec-notation">9.2 Exemples de Définition d’Ensembles avec Notation</h3>
+<ol>
+<li>L’ensemble des nombres pairs positifs peut être défini par une notation concise :</li>
+</ol>
+<div class="arithmatex">\[
+P = \{ x \in \mathbb{N} \ | \ x \text{ est pair} \}
+\]</div>
+<ol start="2">
+<li>L’ensemble des nombres réels positifs peut être défini par :</li>
+</ol>
+<div class="arithmatex">\[
+R^+ = \{ x \in \mathbb{R} \ | \ x &gt; 0 \}
+\]</div>
+<div class="admonition example">
+<p class="admonition-title">Exercice</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Question</label><label for="__tabbed_3_2">Solution</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Créez des ensembles en utilisant la notation mathématique formelle pour exprimer les propriétés suivantes :</p>
+<ol>
+<li>L’ensemble des multiples de 3 dans les entiers naturels <span class="arithmatex">\( \mathbb{N} \)</span>.</li>
+<li>L’ensemble des nombres négatifs dans <span class="arithmatex">\( \mathbb{Z} \)</span>.</li>
+<li>L’ensemble des carrés parfaits dans <span class="arithmatex">\( \mathbb{N} \)</span> (nombres pouvant s’écrire comme <span class="arithmatex">\( n^2 \)</span>, où <span class="arithmatex">\( n \in \mathbb{N} \)</span>).</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<ol>
+<li><span class="arithmatex">\( M = \{ x \in \mathbb{N} \ | \ x = 3k, \ k \in \mathbb{N} \} \)</span></li>
+<li><span class="arithmatex">\( N = \{ x \in \mathbb{Z} \ | \ x &lt; 0 \} \)</span></li>
+<li><span class="arithmatex">\( S = \{ x \in \mathbb{N} \ | \ x = n^2, \ n \in \mathbb{N} \} \)</span></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<h2 id="10-corps">10. Corps</h2>
+<p>Un <strong>corps</strong> (en anglais, <em>field</em>) est un ensemble <span class="arithmatex">\( \mathbb{K} \)</span> muni de deux opérations, l&rsquo;addition <span class="arithmatex">\( + \)</span> et la multiplication <span class="arithmatex">\( \times \)</span>, satisfaisant les propriétés suivantes :</p>
+<p><strong><span class="arithmatex">\( (\mathbb{K}, +) \)</span> est un groupe commutatif</strong> :</p>
+<ul>
+<li>Associativité de l&rsquo;addition : <span class="arithmatex">\( \forall a, b, c \in \mathbb{K}, \ (a + b) + c = a + (b + c) \)</span>.</li>
+<li>**Élément neutre de l&rsquo;addition : Il existe un élément <span class="arithmatex">\( 0 \in \mathbb{K} \)</span> tel que <span class="arithmatex">\( \forall a \in \mathbb{K}, \ a + 0 = a \)</span>.</li>
+<li>Inverse additif** : <span class="arithmatex">\( \forall a \in \mathbb{K}, \ \exists (-a) \in \mathbb{K} \)</span> tel que <span class="arithmatex">\( a + (-a) = 0 \)</span>.</li>
+<li>Commutativité de l&rsquo;addition : <span class="arithmatex">\( \forall a, b \in \mathbb{K}, \ a + b = b + a \)</span>.</li>
+</ul>
+<p><strong><span class="arithmatex">\( (\mathbb{K} \setminus \{0\}, \times) \)</span> est un groupe commutatif</strong> :</p>
+<ul>
+<li>Associativité de la multiplication : <span class="arithmatex">\( \forall a, b, c \in \mathbb{K} \setminus \{0\}, \ (a \times b) \times c = a \times (b \times c) \)</span>.</li>
+<li>Élément neutre de la multiplication : Il existe un élément <span class="arithmatex">\( 1 \in \mathbb{K}, \ 1 \neq 0 \)</span> tel que <span class="arithmatex">\( \forall a \in \mathbb{K}, \ a \times 1 = a \)</span>.</li>
+<li>Inverse multiplicatif : <span class="arithmatex">\( \forall a \in \mathbb{K} \setminus \{0\}, \ \exists a^{-1} \in \mathbb{K} \)</span> tel que <span class="arithmatex">\( a \times a^{-1} = 1 \)</span>.</li>
+<li>Commutativité de la multiplication : <span class="arithmatex">\( \forall a, b \in \mathbb{K}, \ a \times b = b \times a \)</span>.</li>
+</ul>
+<ol start="3">
+<li><strong>Distributivité de la multiplication par rapport à l&rsquo;addition</strong> :</li>
+</ol>
+<ul>
+<li><span class="arithmatex">\( \forall a, b, c \in \mathbb{K}, \ a \times (b + c) = (a \times b) + (a \times c) \)</span>.</li>
+</ul>
+<p>Les exemples courants de corps sont :</p>
+<ul>
+<li>Les nombres rationnels <span class="arithmatex">\( \mathbb{Q} \)</span></li>
+<li>Les nombres réels <span class="arithmatex">\( \mathbb{R} \)</span></li>
+<li>Les nombres complexes <span class="arithmatex">\( \mathbb{C} \)</span></li>
+</ul>
+<h2 id="11-bonus-implication-et-equivalence">11. Bonus - Implication et Équivalence</h2>
+<p>En mathématiques, il est souvent utile de pouvoir relier des affirmations ou expressions pour montrer comment elles dépendent les unes des autres. Ces relations sont décrites par les notions <strong>d&rsquo;implication</strong> et <strong>d&rsquo;équivalence</strong>.</p>
+<p><strong>Implication</strong> : Si une <strong>affirmation 1</strong> (S1) entraîne nécessairement une <strong>affirmation 2</strong> (S2), on dit que <strong>S1 implique S2</strong>. 
+On note cela </p>
+<div class="arithmatex">\[
+S1 \Rightarrow S2
+\]</div>
+<p>Ce symbole signifie que si S1 est vraie, alors S2 doit également être vraie. Cependant, cela ne signifie pas nécessairement que S2 implique S1.</p>
+<details class="quote">
+<summary>In english please !</summary>
+<p><strong>Statement 1 implies Statement 2</strong>: when S1 is true, S2 must also be true.</p>
+</details>
+<p><strong>Équivalence</strong> : Si deux affirmations <strong>S1</strong> et <strong>S2</strong> sont vraies l’une en fonction de l’autre, on dit qu’elles sont <strong>équivalentes</strong> et qu’elles s’impliquent mutuellement. Cela signifie que si S1 est vraie, alors S2 est également vraie, et inversement. On note cela :</p>
+<div class="arithmatex">\[
+S1 \Leftrightarrow S2
+\]</div>
+<p>Cette notation signifie que les deux affirmations sont <strong>logiquement équivalentes</strong>.</p>
+<details class="quote">
+<summary>In english please !</summary>
+<p><strong>S1 if and only if S2</strong>: they are equivalent since they imply each other.</p>
+</details>
+<h3 id="exemple">Exemple</h3>
+<p>Prenons un exemple simple pour illustrer ces concepts :</p>
+<p><strong>Implication</strong> : Si un nombre <span class="arithmatex">\( x \)</span> est divisible par 4, alors il est également divisible par 2. On peut écrire :</p>
+<div class="arithmatex">\[
+x \text{ est divisible par 4} \Rightarrow x \text{ est divisible par 2}
+\]</div>
+<p>Cette implication est vraie, car tout nombre divisible par 4 est également divisible par 2, mais l’inverse n’est pas forcément vrai (par exemple, 6 est divisible par 2, mais pas par 4).</p>
+<p><strong>Équivalence</strong> : Si <span class="arithmatex">\( x \)</span> est un nombre pair, alors <span class="arithmatex">\( x \)</span> est divisible par 2. Cela est aussi vrai dans l&rsquo;autre sens : si <span class="arithmatex">\( x \)</span> est divisible par 2, alors <span class="arithmatex">\( x \)</span> est un nombre pair. On peut donc écrire :</p>
+<div class="arithmatex">\[
+x \text{ est pair} \Leftrightarrow x \text{ est divisible par 2}
+\]</div>
+<p>Cette équivalence montre que les deux affirmations sont vraies l’une par rapport à l’autre.
+Ces concepts d&rsquo;implication et d&rsquo;équivalence permettent de structurer les raisonnements mathématiques et de démontrer des liens logiques entre différentes propositions.</p>
+
+
+<!-- Last updated date -->
+
+<hr />
+<div class="md-source-date">
+  <small>
+    
+      Auteur :  Jules Topart - 
+    
+    <!-- mkdocs-git-revision-date-localized-plugin -->
+    
+      Dernière mise à jour: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">6 novembre 2024</span>
+
+      
+
+    <!-- mkdocs-git-revision-date-plugin -->
+    
+  </small>
+</div>
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
+        
+          
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Fondamentaux de mathématiques appliquées">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Précédent
+              </span>
+              <div class="md-ellipsis">
+                Fondamentaux de mathématiques appliquées
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../2.scalar/" class="md-footer__link md-footer__link--next" aria-label="Suivant: II. Les Scalaires, Grandeurs Physiques et Unités">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              <div class="md-ellipsis">
+                II. Les Scalaires, Grandeurs Physiques et Unités
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright 2021 - Unilasalle Amiens - Creative Commons Attribution Non Commercial
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.tabs", "navigation.instant", "navigation.instant.progress", "navigation.tracking", "search.suggest", "navigation.footer", "navigation.top", "toc.follow"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+        <script src="../../js/mkdocs-charts-plugin.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/p5@1.5.0/lib/p5.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+      
+        <script src="../../theme/p5.min.js"></script>
+      
+        <script src="../../theme/p5.fillGradient.js"></script>
+      
+        <script src="../../theme/config.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://unpkg.com/function-plot/dist/function-plot.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/1.5.2/math.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.js"></script>
+      
+    
+  </body>
+</html>
